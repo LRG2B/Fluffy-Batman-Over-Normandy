@@ -12,6 +12,11 @@ public class FollowPlayer2 : MonoBehaviour
     [Tooltip("Mountain sprite gameobject")]
     public GameObject mountain;
     [Tooltip("Camera offset")]
+
+    //FirstCam = (0,1f,3.45f) good
+    public float AxeY = 1f;
+    public float AxeZ = 3.45f;
+
     private Vector3 offset = new Vector3(0, 1f, 3.45f);
     [Tooltip("Skydome offset")]
     private Vector3 offset_skydome;
