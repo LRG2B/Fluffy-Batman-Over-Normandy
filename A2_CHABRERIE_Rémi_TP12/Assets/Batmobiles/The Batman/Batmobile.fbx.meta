@@ -14,6 +14,71 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Capo
     second: {fileID: 2100000, guid: ac6498447eb052140b319cd266e9b999, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chasis
+    second: {fileID: 2100000, guid: 2de6b3734769a844c9e35c43932ac857, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gearbox
+    second: {fileID: 2100000, guid: d0e3638d8e1883244be083abee19cf4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Habitaculo
+    second: {fileID: 2100000, guid: 8814a3b3b5b7938438d3870756863c71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JaulaMotor
+    second: {fileID: 2100000, guid: 36a165e73439b3040bc9b4d944245baa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LuzDelantera
+    second: {fileID: 2100000, guid: f4fd98f7cb0ddb94c8586e53e82d6cdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LuzTrasera
+    second: {fileID: 2100000, guid: 8b8a0b80beac92e4d86adf41282e7d4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Motor
+    second: {fileID: 2100000, guid: d2ff3b030b713a742865a3d1bc61a7cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Parachoques
+    second: {fileID: 2100000, guid: 7c3b54e03cb61c9448e51e3a87107052, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlacasLateralesFrontales
+    second: {fileID: 2100000, guid: 1d00dc7d0470ae14795635a50781776f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rejilla
+    second: {fileID: 2100000, guid: 673a0201f49601c48be101a68308cf13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ruedas delanteras
+    second: {fileID: 2100000, guid: 88d9376e73885894191be21f5e850e5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RuedasTraseras
+    second: {fileID: 2100000, guid: e2e32d665705a4446b8b41a502bb932c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TuboDeEscape
+    second: {fileID: 2100000, guid: 59e44ff2799ba8d4cb42573b788e834a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
