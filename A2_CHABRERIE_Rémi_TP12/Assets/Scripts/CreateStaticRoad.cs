@@ -37,7 +37,7 @@ public class CreateStaticRoad : MonoBehaviour
 
     void Start()
     {
-        pos = new Vector3(0, 0, nb_road * 10);                                                              //Set the position of the first instantiated road, Z being the number of instantiated road time the size of a road
+        pos = new Vector3(0, 0, nb_road * 20);                                                              //Set the position of the first instantiated road, Z being the number of instantiated road time the size of a road
         GameObject.Instantiate(road_pattern, pos, Quaternion.identity);                                     //Instantiate the first road with the road pattern, the former position and a 90° rotation
         nb_road++;                                                                                          //Update the total number of road
         road_size = (road.GetComponent<Renderer>().bounds.size.x) / 2;                                      //Set the size of the road as the bound size of the road component
@@ -49,10 +49,10 @@ public class CreateStaticRoad : MonoBehaviour
 
         if (distance - player_posZ <= 300)                                                                  //If the distance between the player and the furthest road is less or equal than 300 
         {
-            pos = new Vector3(0, 0, nb_road * 10);                                                          //Set a new position for the next road
+            pos = new Vector3(0, 0, nb_road * 20);                                                          //Set a new position for the next road
             GameObject.Instantiate(road_pattern, pos, Quaternion.identity);                                 //Instantiate this road
             nb_road++;                                                                                      //Update the number of road
-            distance += 10;                                                                                 //Update the distance reach with road
+            distance += 20;                                                                                 //Update the distance reach with road
             pos_obstacle = new Vector3(Mathf.Round(Random.Range(-road_size, road_size) * 10.0f) * 0.1f,
                 0, 
                 Mathf.Round(Random.Range(distance - 10, distance) * 10.0f) * 0.1f);                         //Set the position of the obstacle with X between the X size of the road and Z between the Z size of the instantiated road
