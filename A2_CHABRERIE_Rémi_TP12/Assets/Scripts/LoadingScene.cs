@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour
 {
-    public string NameLoadingScene = "LoadingScene";
 
     public static LoadingScene instance;
 
