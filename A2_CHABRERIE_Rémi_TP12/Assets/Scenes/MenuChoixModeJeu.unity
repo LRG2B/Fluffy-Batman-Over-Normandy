@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 539159067}
   - component: {fileID: 539159066}
   m_Layer: 5
-  m_Name: QuitButton
+  m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -328}
+  m_AnchoredPosition: {x: -683, y: -401}
   m_SizeDelta: {x: 483.0166, y: 101.1708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539159066
@@ -437,14 +437,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 814589932}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
+        m_MethodName: LoadingScene1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &539159067
@@ -556,7 +556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
+  m_Text: 'Main Menu
 
 '
 --- !u!222 &563830622
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 819217905}
   - component: {fileID: 819217904}
   m_Layer: 5
-  m_Name: HighScoreButton
+  m_Name: ChronoModeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,7 +649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -183}
+  m_AnchoredPosition: {x: 321, y: -49}
   m_SizeDelta: {x: 483.0166, y: 101.1708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819217904
@@ -698,14 +698,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 814589932}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
-        m_MethodName: LoadingScene1
-        m_Mode: 5
+        m_MethodName: LoadingChronoMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: HighScore
+          m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &819217905
@@ -782,7 +782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 744.17, y: -278.1}
+  m_AnchoredPosition: {x: 749, y: -326}
   m_SizeDelta: {x: 205.03, y: 200.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822750588
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 1303706607}
   - component: {fileID: 1303706606}
   m_Layer: 5
-  m_Name: TitleGame
+  m_Name: TitleScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,8 +1090,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: 200.90088}
-  m_SizeDelta: {x: 1220.4514, y: 344.2476}
+  m_AnchoredPosition: {x: -7, y: 168}
+  m_SizeDelta: {x: 1220.4514, y: 145.4021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1303706606
 MonoBehaviour:
@@ -1126,9 +1126,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fluffy Batman
-
-    Over Normandy'
+  m_Text: Choix mode de jeu
 --- !u!222 &1303706607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1208,9 +1206,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HighScore
-
-'
+  m_Text: Chrono
 --- !u!222 &1840977232
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1338,7 +1334,7 @@ GameObject:
   - component: {fileID: 2081158246}
   - component: {fileID: 2081158245}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: ModeClassiqueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1362,7 +1358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: -44}
+  m_AnchoredPosition: {x: -333, y: -49}
   m_SizeDelta: {x: 483.0166, y: 101.1708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081158245
@@ -1386,10 +1382,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.7137255, g: 0.5882353, b: 0.5882353, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1418,7 +1414,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MenuChoixModeJeu
+          m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2081158246
@@ -1434,7 +1430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HighScore.unity
     guid: 9a926ffb3d5d81e43837b1217fadd0ea
+  - enabled: 1
+    path: Assets/Scenes/MenuChoixModeJeu.unity
+    guid: 38991c1db2111da4288f12d6fd991413
   m_configObjects: {}
