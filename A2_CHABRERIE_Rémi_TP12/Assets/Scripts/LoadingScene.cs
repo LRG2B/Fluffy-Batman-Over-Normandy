@@ -36,6 +36,12 @@ public class LoadingScene : MonoBehaviour
         LoadingScene1("Game");
     }
 
+    public void ResetScore()
+    {
+        PlayerPrefs.DeleteKey("HighScore");
+    }
+
+
     public void QuitGame()
     {
         Application.Quit();
