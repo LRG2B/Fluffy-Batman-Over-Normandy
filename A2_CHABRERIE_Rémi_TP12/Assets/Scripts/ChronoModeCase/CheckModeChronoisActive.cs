@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
 public class CheckModeChronoisActive : MonoBehaviour
 {
-    public GameObject TextContainer;
-    public int RecupBool;
+    public int ModeChronoIsActive;
+    public GameObject Object_ActiveTimer;
 
-    void Start()
-    {
-        RecupBool = LoadingScene.instance.ModeChrono;
-    }
 
     void Update()
     {
-        RecupBool = LoadingScene.instance.ModeChrono;
-        if (RecupBool == 0)
+        //Il récupère la donnée donc 
+        ModeChronoIsActive = PlayerPrefs.GetInt("ModeChronoActivation",0);
+
+        if (ModeChronoIsActive == 5)
         {
-            TextContainer.gameObject.SetActive(true);
+            ActiveTimer();
+            //Il détruit la clé pour éviter que le mode chrono s'active quand on lance le mode normal (donnée toujours à 5)
+            PlayerPrefs.SetInt("ModeChronoActivation", 0);
+            //PlayerPrefs.DeleteKey("ModeChronoActivation");
         }
-        if (RecupBool != 1)
-        {
-            TextContainer.gameObject.SetActive(false);
-        }
+    }
+
+    public void ActiveTimer()
+    {
+        Object_ActiveTimer.SetActive(true);
     }
 }

@@ -596,7 +596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a5fa17539e3db46bd8a9a69386f0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModeChrono: 0
 --- !u!4 &814589933
 Transform:
   m_ObjectHideFlags: 0
@@ -1126,7 +1125,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Choix mode de jeu
+  m_Text: GameMode Available
 --- !u!222 &1303706607
 CanvasRenderer:
   m_ObjectHideFlags: 0
