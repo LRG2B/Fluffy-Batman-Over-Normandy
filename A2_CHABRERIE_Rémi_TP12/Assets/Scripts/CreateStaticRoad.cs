@@ -34,6 +34,8 @@ public class CreateStaticRoad : MonoBehaviour
     private GameObject[] obstacles;
     [Tooltip("Random id of the array of obstacles")]
     private int i;
+    [Tooltip("Y position of the instantiated obstacles")]
+    private float yPos_obstacle;
 
     void Start()
     {
@@ -41,6 +43,8 @@ public class CreateStaticRoad : MonoBehaviour
         GameObject.Instantiate(road_pattern, pos, Quaternion.identity);                                     //Instantiate the first road with the road pattern, the former position and a 90° rotation
         nb_road++;                                                                                          //Update the total number of road
         road_size = (road.GetComponent<Renderer>().bounds.size.x) / 2;                                      //Set the size of the road as the bound size of the road component
+
+        Debug.Log("Taille de la route : " + road_size);
     }
 
     void Update()
@@ -53,13 +57,18 @@ public class CreateStaticRoad : MonoBehaviour
             GameObject.Instantiate(road_pattern, pos, Quaternion.identity);                                 //Instantiate this road
             nb_road++;                                                                                      //Update the number of road
             distance += 20;                                                                                 //Update the distance reach with road
-            pos_obstacle = new Vector3(Mathf.Round(Random.Range(-road_size, road_size) * 10.0f) * 0.1f,
-                0, 
-                Mathf.Round(Random.Range(distance - 10, distance) * 10.0f) * 0.1f);                         //Set the position of the obstacle with X between the X size of the road and Z between the Z size of the instantiated road
-
             i = Random.Range(0, obstacles.Length);                                                          //Get a random id from the obstacles array
+            if (i == 4)                                                                                     //If the selected obstacle is the rock
+                yPos_obstacle = 1.332553f;                                                                  //Set the Y position so it can spawn
+            else                                                                                            //Else
+                yPos_obstacle = 0f;                                                                         //Set the normal spawn position
+            pos_obstacle = new Vector3(Mathf.Round(Random.Range(-road_size, road_size) * 10.0f) * 0.1f,     //Set the position of the obstacle with X between the X size of the road,
+                yPos_obstacle,                                                                              //Y depending on the obstacle (rock or not),
+                Mathf.Round(Random.Range(distance - 10, distance) * 10.0f) * 0.1f);                         //and Z between the Z size of the instantiated road
             GameObject.Instantiate(obstacles[i], pos_obstacle, Quaternion.identity);                        //Instantiate the obstacle
         }
+
+        Debug.Log("Position du joueur : " + player_posZ + " / Distance de route : " + distance);
 
         if (distance%1000 == 0)                                                                             //If the remainder of the division of the distance by 1000 equal 0
         {
