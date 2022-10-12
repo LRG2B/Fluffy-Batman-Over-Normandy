@@ -14,7 +14,7 @@ public class Destroy : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.z + 20 < player.transform.position.z)                //If the Y position of the crate or the barrier is behind the Y position of the player with an offset of 20
+        if (transform.position.z + 40 < player.transform.position.z)                //If the Y position of the crate or the barrier is behind the Y position of the player with an offset of 20
             Destroy(gameObject);                                                    //Destroy the attached object
     }
 }
