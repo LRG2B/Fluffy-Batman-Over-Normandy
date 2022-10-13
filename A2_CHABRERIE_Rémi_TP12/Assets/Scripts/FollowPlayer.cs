@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    [SerializeField]
     [Tooltip("Player gameobject")]
-    private GameObject player;
-    [Tooltip("Camera offset")]
+    public GameObject player;
 
-    private float AxeY;
-    private float AxeZ;
+    //FirstCam = (0,1f,3.45f) good
+    //ThirdCam = 0, 6.66f, -12.97f good
+    public float AxeY = 0.1f;
+    public float AxeZ = 3.45f;
+
     private Vector3 offset;
 
-    void Start() {
-        AxeY = 6.66f;
-        AxeZ = -12.97f;
+    void Start()
+    {
         offset = new Vector3(0, AxeY, AxeZ);
     }
 
-    void LateUpdate() { 
+    void LateUpdate()
+    {
         transform.position = player.transform.position + offset;                                                                            //Set the camera position at the player position + it offset
     }
 }

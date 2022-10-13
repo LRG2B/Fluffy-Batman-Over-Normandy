@@ -73,7 +73,7 @@ public class CreateStaticRoad : MonoBehaviour
     {
         player_posZ = Mathf.Round(player.transform.position.z * 10.0f) * 0.1f;                              //Set the Z player position as a rounded value of it position
 
-        if (distance - player_posZ <= 1000)                                                                 //If the distance between the player and the furthest road is less or equal than 300 
+        if (distance - player_posZ <= 1000)                                                                     //If the distance between the player and the furthest road is less or equal than 300 
         {
             pos = new Vector3(0, 0, nb_road * 20);                                                          //Set a new position for the next road
             GameObject.Instantiate(road_pattern, pos, Quaternion.identity);                                 //Instantiate this road
