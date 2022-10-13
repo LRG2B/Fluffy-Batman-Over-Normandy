@@ -8,6 +8,8 @@ public class Score : MonoBehaviour
     public Text ContainerScore;
     public Text highscoreContainer;
 
+    private int ModeContainerChrono;
+
     private float Score_Z;
 
     void Start()
@@ -16,6 +18,8 @@ public class Score : MonoBehaviour
         //Les données sont stockés dans HighScore
         highscoreContainer.text = PlayerPrefs.GetFloat("HighScore",0).ToString();
         Score_Z = transform.position.z;
+
+        ModeContainerChrono = PlayerPrefs.GetInt("ModeChronoActivation", 0);
     }
 
     // Update is called once per frame
@@ -28,7 +32,8 @@ public class Score : MonoBehaviour
 
     public void StockageScore()
     {
-        if (Score_Z > PlayerPrefs.GetFloat("HighScore", 0))
+        //Si le score actuel est plus élévé que le highscore on enregistre le score
+        if (Score_Z > PlayerPrefs.GetFloat("HighScore", 0) && ModeContainerChrono == 5)
         {
             PlayerPrefs.SetFloat("HighScore", Score_Z);
             highscoreContainer.text = Score_Z.ToString();
