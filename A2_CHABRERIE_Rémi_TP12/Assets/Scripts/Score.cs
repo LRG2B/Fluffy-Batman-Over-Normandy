@@ -15,12 +15,11 @@ public class Score : MonoBehaviour
     void Start()
     {
         //Valeur par défaut
-        //Rajout
 
         //Les données sont stockés dans HighScore
         highscoreContainer.text = PlayerPrefs.GetFloat("HighScore",0).ToString();
         //Rajout
-        ContainerScore.text = PlayerPrefs.GetFloat("CurrentScore", 0).ToString();
+        //ContainerScore.text = PlayerPrefs.GetFloat("CurrentScore", 0).ToString();
 
         Score_Z = transform.position.z;
         ModeContainerChrono = PlayerPrefs.GetInt("ModeChronoActivation", 0);
@@ -30,11 +29,11 @@ public class Score : MonoBehaviour
     void Update()
     {
         Score_Z = transform.position.z;
-        //ContainerScore.text = Score_Z.ToString();
+        ContainerScore.text = Score_Z.ToString();
 
         //Rajout
         PlayerPrefs.SetFloat("CurrentScore", Score_Z);
-        ContainerScore.text = PlayerPrefs.GetFloat("CurrentScore", 0).ToString();
+        //ContainerScore.text = PlayerPrefs.GetFloat("CurrentScore", 0).ToString();
 
         StockageScore();
     }
