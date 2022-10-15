@@ -16,6 +16,8 @@ public class PlayerControllerLoic : MonoBehaviour
 
     public static PlayerControllerLoic instance;
 
+    public int effect_time;
+
     private void Awake()
     {
 
@@ -28,6 +30,8 @@ public class PlayerControllerLoic : MonoBehaviour
         {
             instance = this;
         }
+
+        effect_time = 0;
     }
 
 
@@ -38,6 +42,31 @@ public class PlayerControllerLoic : MonoBehaviour
         ForwardInput = Input.GetAxis("Vertical");
         float position = transform.position.y;
 
+        if (effect_time > 0)
+        {
+            if (Input.GetKey("up") && Speed != MaxSpeed)
+                Speed = Speed + Accelaration + 0.3f;
+            else
+            {
+                Speed -= Accelaration;
+                if (Speed < MinSpeed)
+                    Speed = MinSpeed;
+            }
+            effect_time--;
+        }
+        else
+        {
+            //Partie accélérration/décelarration
+            if (Input.GetKey("up") && Speed != MaxSpeed)
+                Speed += Accelaration;
+            else
+            {
+                Speed -= Accelaration;
+                if (Speed < MinSpeed)
+                    Speed = MinSpeed;
+            }
+        }
+        
         transform.Translate(Vector3.forward * Time.deltaTime * Speed * ForwardInput);
         if (ForwardInput < 0)
             horizontalInput = -horizontalInput;
@@ -46,15 +75,6 @@ public class PlayerControllerLoic : MonoBehaviour
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
 
 
-        //Partie accélérration/décelarration
-        if (Input.GetKey("up") && Speed != MaxSpeed)
-            Speed += Accelaration;
-        else
-        {
-            Speed -= Accelaration;
-            if (Speed < MinSpeed)
-                Speed = MinSpeed;
-        }
 
         //Si le véhicule tombe et atteint une certaine distance de chute, il pourra plus bouger
         if (transform.position.y < 0 || transform.position.y > 3)
@@ -73,6 +93,12 @@ public class PlayerControllerLoic : MonoBehaviour
 
         if (positionFall < -5f)
             SceneManager.LoadScene("GameLose");
+
+    }
+
+    public void UpdateSpeed(int time)
+    {
+        effect_time += time;
     }
 
 }
