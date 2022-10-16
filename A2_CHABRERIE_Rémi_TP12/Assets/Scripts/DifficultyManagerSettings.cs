@@ -2,53 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DifficultySettings : MonoBehaviour
+public class DifficultyManagerSettings : MonoBehaviour
 {
-    //public GameObject Road1;
-    //public GameObject Road2;
+    public GameObject Road1;
+    public GameObject Road2;
     public GameObject Car;
-    public int AdditionNewMaxSpeed = 10;
-    public int AdditionNewMinSpeed = 10;
-    public float DistanceActivation = 100f;
-    //public float Score_z;
-    public int NbreActivation;
+    public float AdditionNewMaxSpeed = 5;
+    public float AdditionNewMinSpeed = 5;
+    public float AdditionNewAcceleration = 0.001f;
+    public float DistanceActivation = 200f;
+    public float AdditionNewDistanceActivation = 100f;
 
     //Distance parcourue
     private float Score_z;
+    private Vector3 vRoad1;
+    private Vector3 vRoad2;
 
     // Start is called before the first frame update
     void Start()
     {
         Score_z = Car.transform.position.z;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Quand le véhicule aura atteint x distance, on change les settings
-        /*if (Score_z == DistanceActivation)
-        {
-            PlayerControllerLoic.instance.MaxSpeed += AdditionNewMaxSpeed;
-            PlayerControllerLoic.instance.MinSpeed += AdditionNewMinSpeed;
-            //Diminution de la route
-            Vector3 ltemp = Road1.transform.localScale;
-            ltemp.z -= 1;
-            Road1.transform.localScale = ltemp;
-            Road2.transform.localScale = ltemp;
+        vRoad1 = Road1.transform.position;
+        vRoad2 = Road2.transform.position;
 
-            DistanceActivation += 100;
-        }*/
+        vRoad1.x -= 1;
+        vRoad2.x -= 1;
         Score_z = Car.transform.position.z;
 
         if (Score_z >= DistanceActivation)
         {
-            NbreActivation += 1;
+            /*vRoad1.x -= 1;
+            vRoad2.x -= 1;
+            Road1.transform.localScale = vRoad1;
+            Road2.transform.localScale = vRoad2;*/
+
             PlayerControllerLoic.instance.MaxSpeed += AdditionNewMaxSpeed;
             PlayerControllerLoic.instance.MinSpeed += AdditionNewMinSpeed;
-            PlayerControllerLoic.instance.Accelaration += 0.001f;
+            PlayerControllerLoic.instance.Accelaration += AdditionNewAcceleration;
 
             DistanceActivation += 100;
-
         }
     }
 

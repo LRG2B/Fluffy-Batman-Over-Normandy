@@ -1443,11 +1443,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b4b3dc48d7bfe429ffcb5eaec770d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Road1: {fileID: 3384798178684173621, guid: 0d4a27ab483f615489efdc8ace1cc412, type: 3}
+  Road2: {fileID: 6768386928841206683, guid: d4f296fd65af926468fcf975a49dd51d, type: 3}
   Car: {fileID: 919132149222044071}
-  AdditionNewMaxSpeed: 10
-  AdditionNewMinSpeed: 10
-  DistanceActivation: 100
-  NbreActivation: 0
+  AdditionNewMaxSpeed: 2
+  AdditionNewMinSpeed: 2
+  AdditionNewAcceleration: 0.001
+  DistanceActivation: 300
+  AdditionNewDistanceActivation: 200
 --- !u!1 &1385500137
 GameObject:
   m_ObjectHideFlags: 0
