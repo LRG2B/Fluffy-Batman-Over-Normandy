@@ -18,8 +18,12 @@ public class PlayerControllerLoic : MonoBehaviour
 
     public int effect_time;
 
+    private float Zpos;
+
     private void Awake()
     {
+
+        Speed += PlayerPrefs.GetFloat("UpgradeSpeed");
 
         if (instance != null && instance != this)
         {
@@ -45,7 +49,7 @@ public class PlayerControllerLoic : MonoBehaviour
         if (effect_time > 0)
         {
             if (Input.GetKey("up") && Speed != MaxSpeed)
-                Speed = Speed + Accelaration + 0.3f;
+                Speed = Speed + Accelaration + 0.05f;
             else
             {
                 Speed -= Accelaration;
@@ -92,13 +96,22 @@ public class PlayerControllerLoic : MonoBehaviour
         }
 
         if (positionFall < -5f)
+        {
+            Zpos = Mathf.Round(transform.position.z);
             SceneManager.LoadScene("GameLose");
+            PlayerPrefs.SetFloat("nbCoins", Zpos / 10);
+        }
 
     }
 
     public void UpdateSpeed(int time)
     {
         effect_time += time;
+    }
+
+    public void UpgradeSpeed()
+    {
+        Speed += 20;
     }
 
 }

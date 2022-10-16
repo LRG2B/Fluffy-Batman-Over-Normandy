@@ -108,8 +108,11 @@ public class CreateStaticRoad : MonoBehaviour
                                                                                             Y_pos_obstacle, 
                                         Mathf.Round(Random.Range(distance - 10, distance) * 10.0f) * 0.1f);     //Set the position of the obstacle with X between the X size of the road and Z between the Z size of the instantiated road
                 GameObject.Instantiate(obstacles[i], pos_obstacle, Quaternion.identity);                       //Instantiate the obstacle
+                
                 InstantiateSidewalk();                                                                        //Instantiation of the sidewalk
-                InstantiateWall();                                                                           //Instantiation of the walls
+                
+                if (distance <= 1000)
+                    InstantiateWall();                                                                       //Instantiation of the walls
                 nb_road++;                                                                                  //Update the number of road
                 random_road_length--;                                                                      //Update the road stretch road
             }

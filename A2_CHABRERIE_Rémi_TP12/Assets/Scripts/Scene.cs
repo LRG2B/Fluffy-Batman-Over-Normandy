@@ -16,6 +16,6 @@ public class Scene : MonoBehaviour
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(3);                                         //Wait 3 seconds
-        SceneManager.LoadScene("Game");                                             //Load the game scene
+        SceneManager.LoadScene("MainMenu");                                             //Load the game scene
     }
 }
