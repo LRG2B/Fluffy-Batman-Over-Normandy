@@ -16,11 +16,11 @@ public class FollowPlayer : MonoBehaviour
 
     void Start()
     {
-        offset = new Vector3(0, AxeY, AxeZ);
+        offset = new Vector3(0, AxeY, AxeZ);            //We create a new vector
     }
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;                                                                            //Set the camera position at the player position + it offset
+        transform.position = player.transform.position + offset;     //The camera follow the car with a smoth animation with the LateUpdate                                                                        //Set the camera position at the player position + it offset
     }
 }

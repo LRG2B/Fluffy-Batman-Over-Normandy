@@ -14,10 +14,10 @@ public class MusicControlScript : MonoBehaviour
         StartCoroutine(PlayMusicLoop()); // Start our coroutine that will loop through our music tracks
     }
 
-    private AudioClip GetRandomClips()
+    private AudioClip GetRandomClips()      
     {
-        return musicClips[Random.Range(0, musicClips.Length)];
-    }
+        return musicClips[Random.Range(0, musicClips.Length)];      //This function put a value between 0 and the number of sounds
+    }                                                               //After this, he playing the sounds with the number associated (int the tab)
 
     IEnumerator PlayMusicLoop() // A coroutine allows you to spread tasks across several frames. In Unity, a coroutine is a method that can pause execution and return control to Unity but then continue where it left off on the following frame
     {
@@ -30,7 +30,7 @@ public class MusicControlScript : MonoBehaviour
                 musicSource.Play(); // Play our AudioSource
 
                 // P permet de skip les musiques
-                while (musicSource.isPlaying || Input.GetKeyDown(KeyCode.P)) // While a song is playing
+                while (musicSource.isPlaying)    // While a song is playing
                 {
                     yield return null; // Do nothing / wait for end of song
                 }

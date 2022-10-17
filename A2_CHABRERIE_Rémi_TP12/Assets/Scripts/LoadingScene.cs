@@ -8,7 +8,7 @@ public class LoadingScene : MonoBehaviour
 
     public static LoadingScene instance;
 
-    private void Awake()
+    private void Awake()                //Creation instance for using this LoadingScene's function in another script
     {
         if (instance != null && instance != this)
         {
@@ -18,41 +18,36 @@ public class LoadingScene : MonoBehaviour
         else
         {
             instance = this;
-            //DontDestroyOnLoad(instance);
         }
-        //PlayerPrefs.DeleteKey("ModeChronoActivation");
     }
 
     public void Start()
     {
-        //Destruction de la scène précédente et création d'une nouvelle
-        //PlayerPrefs.DeleteKey("ModeChronoActivation");
-        PlayerPrefs.GetInt("ModeChronoActivation", 0);
-    }
+        PlayerPrefs.GetInt("ModeChronoActivation", 0);          //Create PlayerPrefs for know if the ChronoMode are activate or not
+    }                                                           //If it was activate, we put a predifined number in this PlayerPrefs
 
     //NE PAS Y TOUCHER
-    public void LoadingScene1(string NomScene)
+    public void LoadingScene1(string NomScene)                  //basic function for loading in scene with his name or his number in the hierarchy
     {
         SceneManager.LoadScene(NomScene);
     }
+
     //On lance le mode Chrono auquel un bool sera positive
     //Donc vu que ModeChrono sera positif il pourra activer ou désactiver des canvas
-    public void LoadingChronoMode()
+    public void LoadingChronoMode()                                 //Function we put in the Launch "Chrono" in "MenuChoixModeJeu" 
     {
-        //Si on lance le mode Chrono on passe en paramêtre 5
-        PlayerPrefs.SetInt("ModeChronoActivation", 5);
-        LoadingScene1("Game");
+        PlayerPrefs.SetInt("ModeChronoActivation", 5);              //Put number 5 in the PlayerPrefs ModeChronoActivation , we using this number in another script
+        LoadingScene1("Game");                                      //For setactive a object who contain the script Score
+                                                                    //Launch the functon LoadingScene1
     }
 
-    //Pour détruire la clé 
     public void ResetScore()
     {
-        PlayerPrefs.DeleteKey("HighScore");
+        PlayerPrefs.DeleteKey("HighScore");                     //Destroy the key who contain HighScore for reset
     }
 
-    //Pour quitter le jeu -> NE PAS Y TOUCHER
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit();                                     //Quit the Application, this function was using with a button
     }
 }

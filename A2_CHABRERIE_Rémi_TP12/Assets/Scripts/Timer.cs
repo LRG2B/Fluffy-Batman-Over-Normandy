@@ -16,12 +16,12 @@ public class Timer : MonoBehaviour
     void Update()
     {
         //Il doit attendre 3 secondes sur le menu "YOU LOSE" ensuite il relance le level0
-        TimeLeft -= Time.deltaTime;
-        TempsRestant.text = TimeLeft.ToString();
+        TimeLeft -= Time.deltaTime;                         //The data TimeLeft decrease with the time pass
+        TempsRestant.text = TimeLeft.ToString();            //We storage the timeleft in a container text and show in the player
 
-        if (TimeLeft < 0)
+        if (TimeLeft < 0)                                   //When the timer get the value Zero (No More Time)
         {
-            LoadingScene.instance.LoadingScene1(GameLose); 
+            LoadingScene.instance.LoadingScene1(GameLose);      //The player lose and we storage his highscore if he was in ChronoMode
         }
     }
 }

@@ -23,7 +23,7 @@ public class PlayerControllerLoic : MonoBehaviour
     private void Awake()
     {
 
-        Speed += PlayerPrefs.GetFloat("UpgradeSpeed");
+        Speed += PlayerPrefs.GetFloat("UpgradeSpeed");                      //Speed get the value of the PlayerPrefs UpgradeSpeed
 
         if (instance != null && instance != this)
         {
@@ -42,19 +42,19 @@ public class PlayerControllerLoic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        ForwardInput = Input.GetAxis("Vertical");
-        float position = transform.position.y;
+        horizontalInput = Input.GetAxis("Horizontal");          //We get the Axis Horizontal of the Batmobile
+        ForwardInput = Input.GetAxis("Vertical");               //We get the Vertical Horizontal of the Batmobile
+        float position = transform.position.y;                  //Position Y is stocked in position
 
         if (effect_time > 0)
         {
-            if (Input.GetKey("up") && Speed != MaxSpeed)
-                Speed = Speed + Accelaration + 0.05f;
-            else
+            if (Input.GetKey("up") && Speed != MaxSpeed)       //IF we put the Up Arrow Key and the actual speed of the car isn't the maxSpeed
+                Speed = Speed + Accelaration + 0.05f;           //We increase the speed
+            else                                               //If we don't put the Up Arrow Keys
             {
-                Speed -= Accelaration;
-                if (Speed < MinSpeed)
-                    Speed = MinSpeed;
+                Speed -= Accelaration;                          //We decrease the speed
+                if (Speed < MinSpeed)                           //But the speed can't decrease too mush
+                    Speed = MinSpeed;                           //If the Speed is smaller than the MinSpeed, the update the Speed to MinSpeed
             }
             effect_time--;
         }
@@ -71,34 +71,33 @@ public class PlayerControllerLoic : MonoBehaviour
             }
         }
         
-        transform.Translate(Vector3.forward * Time.deltaTime * Speed * ForwardInput);
-        if (ForwardInput < 0)
+        transform.Translate(Vector3.forward * Time.deltaTime * Speed * ForwardInput);       //For moving forward
+        if (ForwardInput < 0)                                                               //When we doing backtrack
             horizontalInput = -horizontalInput;
 
         if (ForwardInput != 0)
-            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);
+            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);     //For turning
 
 
 
-        //Si le véhicule tombe et atteint une certaine distance de chute, il pourra plus bouger
-        if (transform.position.y < 0 || transform.position.y > 3)
+        if (transform.position.y < 0 || transform.position.y > 3)       //When the car starting falling
         {
-            Speed = 10;
+            Speed = 10;     //His speed was this value for falling
         }
 
         //Pour pas qu'il bouge
         float positionFall = transform.position.y;
-        if (positionFall < 0 || positionFall > 3.5f)
+        if (positionFall < 0 || positionFall > 3.5f)        //When the car starting falling and he gets this value (3.5)
         {
             //Il peut pas bouger
-            horizontalInput = 0;
-            ForwardInput = 0;
+            horizontalInput = 0;        //He can't move forward
+            ForwardInput = 0;           //he can't move at all
         }
 
-        if (positionFall < -5f)
+        if (positionFall < -5f)         //When the car gets this position (after he starting falling)
         {
             Zpos = Mathf.Round(transform.position.z);
-            SceneManager.LoadScene("GameLose");
+            SceneManager.LoadScene("GameLose");             //We launch the scene gameLose
             PlayerPrefs.SetFloat("nbCoins", Zpos / 10);
         }
 

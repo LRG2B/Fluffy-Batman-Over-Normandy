@@ -29,29 +29,22 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score_Z = transform.position.z;
-        ContainerScore.text = Score_Z.ToString();
+        Score_Z = transform.position.z;                     //Score_z is the z position of the score, we use it for get the actual score of the player
+        ContainerScore.text = Score_Z.ToString();           //We put this Score_z into a container text for showing to the player his score
 
         //Rajout
-        PlayerPrefs.SetFloat("CurrentScore", Score_Z);
-        //ContainerScore.text = PlayerPrefs.GetFloat("CurrentScore", 0).ToString();
+        PlayerPrefs.SetFloat("CurrentScore", Score_Z);      //We put his actual score into a playerPrefs CurrentScore
 
-        StockageScore();
+        StockageScore();                                    
     }
 
     public void StockageScore()
     {
         //Si le score actuel est plus élévé que le highscore on enregistre le score
-        if (Score_Z > PlayerPrefs.GetFloat("HighScore", 0) && ModeContainerChrono == 5)
-        {
-            PlayerPrefs.SetFloat("HighScore", Score_Z);
-            highscoreContainer.text = Score_Z.ToString();
+        if (Score_Z > PlayerPrefs.GetFloat("HighScore", 0) && ModeContainerChrono == 5)     //If the actual Score of the player is higher than the HighScore (0 in the beginning at all)
+        {                                                                                   //And the ModeChrono are active with the recuperation of the playerPrefs (view in another Script). 
+            highscoreContainer.text = Score_Z.ToString();                   //So the highscore can be storage only if the player are in chrono mode
+            PlayerPrefs.SetFloat("HighScore", Score_Z);                     //We update the HighScore with the new dataand we show it to the player
         }
     }
-
-    /*
-    public void ResetScore()
-    {
-        PlayerPrefs.DeleteKey("HighScore");
-    }*/
 }
