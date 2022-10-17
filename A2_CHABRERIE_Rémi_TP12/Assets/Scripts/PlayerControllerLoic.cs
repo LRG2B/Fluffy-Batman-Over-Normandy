@@ -50,12 +50,6 @@ public class PlayerControllerLoic : MonoBehaviour
         {
             if (Input.GetKey("up") && Speed != MaxSpeed)       //IF we put the Up Arrow Key and the actual speed of the car isn't the maxSpeed
                 Speed = Speed + Accelaration + 0.05f;           //We increase the speed
-            else                                               //If we don't put the Up Arrow Keys
-            {
-                Speed -= Accelaration;                          //We decrease the speed
-                if (Speed < MinSpeed)                           //But the speed can't decrease too mush
-                    Speed = MinSpeed;                           //If the Speed is smaller than the MinSpeed, the update the Speed to MinSpeed
-            }
             effect_time--;
         }
         else
@@ -63,12 +57,6 @@ public class PlayerControllerLoic : MonoBehaviour
             //Partie accélérration/décelarration
             if (Input.GetKey("up") && Speed != MaxSpeed)
                 Speed += Accelaration;
-            else
-            {
-                Speed -= Accelaration;
-                if (Speed < MinSpeed)
-                    Speed = MinSpeed;
-            }
         }
         
         transform.Translate(Vector3.forward * Time.deltaTime * Speed * ForwardInput);       //For moving forward
