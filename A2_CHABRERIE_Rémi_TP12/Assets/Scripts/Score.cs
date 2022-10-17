@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    [Tooltip("Text container for the score")]
     public Text ContainerScore;
+    [Tooltip("Text container for the highest score")]
     public Text highscoreContainer;
 
+    [Tooltip("")]
     private int ModeContainerChrono;
 
+    [Tooltip("")]
     private float Score_Z;
 
     void Start()
     {
-        //Valeur par défaut
-
-        //Les données sont stockés dans HighScore
-        highscoreContainer.text = PlayerPrefs.GetFloat("HighScore",0).ToString();
+        highscoreContainer.text = PlayerPrefs.GetFloat("HighScore",0).ToString();               //Set the text of the score container as the highest score saved in the playerprefs
         //Rajout
         //ContainerScore.text = PlayerPrefs.GetFloat("CurrentScore", 0).ToString();
 
